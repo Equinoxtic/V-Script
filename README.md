@@ -8,7 +8,7 @@ Go to the releases page for the downloads!
 
 https://github.com/Equinoxtic/V-Script/releases
 
-Or simply do this:
+Or simply do this, and then click "Download ZIP":
 
 ![image](https://user-images.githubusercontent.com/86795271/147416169-ae5a9731-fae3-4b52-b5d0-4c658170ddd5.png)
 
