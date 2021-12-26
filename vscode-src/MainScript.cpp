@@ -874,7 +874,7 @@ class Create {
 		}
 };
 
-Create Create;
+Create vCreate;
 
 class MCRedstone
 {
