@@ -8,7 +8,6 @@ V-Script-Main-Version
 #include<fstream>
 
 /*
-This .cpp file is only exclusive for the 'Main Developer'
 Must be compiled through a C++ IDE for an easier compiling process
 Recommended: Dev-C++
 But it can be your preference to compile it through an actual compiler
