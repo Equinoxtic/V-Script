@@ -8,7 +8,6 @@ V-Script-Dev-Version
 #include<fstream>
 
 /*
-This .cpp file is only exclusive for the 'Main Developer'
 Must be compiled through a C++ IDE for an easier compiling process
 Recommended: Dev-C++
 But it can be your preference to compile it through an actual compiler
@@ -876,142 +875,6 @@ class Create {
 
 Create Create;
 
-class MCRedstone
-{
-	public:
-		void CreateCircuit()
-		{
-			/*
-			=== Strings ===
-			*/
-
-			string strSource;
-			string strFace;
-			string strOutput;
-
-			/*
-			=== Ints ===
-			*/
-
-			int optsFacing;
-			int optsSrcBlock;
-			int extSrcBlock;
-			int redstoneLength;
-
-			/*
-			=== Floats ===
-			*/
-
-			float redstonePower;
-			float redstoneSignal = redstonePower - 0.5;
-
-			/*
-			=== Bools - Source Block ===
-			*/
-
-			bool isLever;
-			bool isBOR;
-			bool isDS;
-			bool isOre;
-			bool isButton;
-			bool isPressure;
-
-			/*
-			=== Bools - Face ===
-			*/
-
-			bool isForward;
-			bool isBackward;
-			bool isLeft;
-			bool isRight;
-
-			/*
-			=== Arrays ===
-			*/
-
-			string redstoneList[redstoneLength];
-
-			cout << "Select Source Block: \n";
-			cout << "[1] Lever\n[2] Block Of Redstone\n[3] Daylight Sensor\n[4] Redstone Ore\n[5] Button\n[6] Pressure Plate";
-			cin >> optsSrcBlock;
-
-			switch (optsSrcBlock)
-			{
-				case 1:
-					strSource = "lever";
-					isLever = true;
-					extSrcBlock = 1;
-					break;
-				case 2:
-					strSource = "block of redstone";
-					isBOR = true;
-					extSrcBlock = 2;
-					break;
-				case 3:
-					strSource = "daylight sensor";
-					isDS = true;
-					extSrcBlock = 3;
-					break;
-				case 4:
-					strSource = "redstone ore";
-					isOre = true;
-					extSrcBlock = 4;
-					break;
-				case 5:
-					strSource = "button";
-					isButton = true;
-					extSrcBlock = 5;
-					break;
-				case 6:
-					strSource = "pressure plate";
-					isPressure = true;
-					extSrcBlock = 6;
-					break;
-			}
-
-			cout << "Input the amount of Redstone (Maximum is 64): \n";
-			cin >> redstoneLength;
-
-			if (redstoneLength > 64)
-			{
-				cout << "Maximum is 64.";
-			}
-
-			switch (extSrcBlock)
-			{
-				case 1:
-					strOutput = "Source: lever";
-					redstonePower = 7.5;
-					break;
-				case 2:
-					strOutput = "Source: block of redstone";
-					redstonePower = 9.5;
-					break;
-				case 3:
-					strOutput = "Source: daylight sensor";
-					redstonePower = 6.0;
-					break;
-				case 4:
-					strOutput = "Source: redstone ore";
-					redstonePower = 6.5;
-					break;
-				case 5:
-					strOutput = "Source: button";
-					redstonePower = 7.5;
-					break;
-				case 6:
-					strOutput = "Source: pressure plate";
-					redstonePower = 7.0;
-					break;
-			}
-			
-			cout << strOutput;
-			cout << "Redstone Power: " << redstonePower;
-		}
-};
-
-MCRedstone MCRCreate;
-
 /*
 ============================ Code Writing ============================
 */
@@ -1021,18 +884,7 @@ int main()
 	
 	// Dev Test - Writing Code
 
-	
-
 	// Main Stuff
-
-	string pressC;
-	cout << "Type in ''C'' to close the program\n> ";
-	cin >> pressC;
-
-	if (pressC != "C")
-	{
-		throwError("Unknown character.");
-	}
 	
 	return 0;
 	
