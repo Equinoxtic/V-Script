@@ -5,6 +5,7 @@ Idk, not a programming language but just some fun C++ program that I'm making (e
 ## Installation
 
 Go to the releases page for the downloads!
+https://github.com/Equinoxtic/V-Script/releases
 
 ## How to compile
 
