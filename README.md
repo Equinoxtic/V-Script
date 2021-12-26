@@ -20,3 +20,5 @@ Once you have installed Dev-C++ open up, "VScript.dev", and press F9 to compile 
 and done, the program is now compiled.
 
 It's your preference to use an actual compiler
+
+Read, "InstallForMinGW.md" for an installation process with the MinGW compiler.
