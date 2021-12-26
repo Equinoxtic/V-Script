@@ -14,9 +14,11 @@ MinGW (download): https://sourceforge.net/projects/mingw/
 
 ![image](https://user-images.githubusercontent.com/86795271/147414342-b96834ac-9b37-4c95-95be-0d042c54da80.png)
 
-- Right click on each of these packages and mark them for installation (shown here):
+- Right click on each of these packages and mark them for installation (all of them by the way) - (shown here):
 
 ![image](https://user-images.githubusercontent.com/86795271/147414381-2dd3b604-bb6e-4f1b-acb0-4e679691c6c3.png)
+
+![image](https://user-images.githubusercontent.com/86795271/147414732-abebfaa1-4876-415d-a763-b3d4310df288.png)
 
 - Then click on "Installation", and then click on "Apply Changes"
 
@@ -51,3 +53,7 @@ MinGW (download): https://sourceforge.net/projects/mingw/
 ![image](https://user-images.githubusercontent.com/86795271/147414619-2ce92189-6e3a-4564-95f2-33d51b9930ac.png)
 
 - And you're done for adding MinGW to the System Enviroment Variables!
+- To test if the compiler works open up "cmd" and then type in "g++ --version"
+- It should show this up:
+
+![image](https://user-images.githubusercontent.com/86795271/147414694-4b6c77b6-4f76-4d48-be1b-ab61e7b5df62.png)
