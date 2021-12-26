@@ -4,6 +4,8 @@ Idk, not a programming language but just some fun C++ program that I'm making (e
 
 Haha I made while and for loops easier in this program :clown:
 
+mfers mc redstone class is still wip
+
 ## How to compile
 
 Use an IDE that will allow you to compile this C++ program
