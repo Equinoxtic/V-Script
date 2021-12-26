@@ -14,6 +14,8 @@ Use an IDE that will allow you to compile this C++ program
 
 Recommended : Dev-C++
 
+Dev-C++ (download): https://sourceforge.net/projects/orwelldevcpp/
+
 Once you have installed Dev-C++ open up, "VScript.dev", and press F9 to compile the program
 and done, the program is now compiled.
 
