@@ -8,6 +8,10 @@ Go to the releases page for the downloads!
 
 https://github.com/Equinoxtic/V-Script/releases
 
+Or simply do this:
+
+
+
 ## How to compile
 
 Use an IDE that will allow you to compile this C++ program
