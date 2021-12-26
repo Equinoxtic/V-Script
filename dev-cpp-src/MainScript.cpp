@@ -1,6 +1,6 @@
 /*
-V-Script-Dev-Version
-1.0b-dev
+V-Script-Main-Version
+1.1b
 */
 
 #include<iostream>
@@ -24,6 +24,12 @@ ofstream strObjs("objs/strObjs.txt");
 ofstream intObjs("objs/intObjs.txt");
 ofstream floObjs("objs/floatObjs.txt");
 ofstream douObjs("objs/doubleObjs.txt");
+
+/*
+============================ Variable Initialization ============================
+*/
+
+bool isError = false;
 
 /*
 ============================ Main Functions ============================
@@ -176,149 +182,6 @@ static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool di
 	cout << res << "\n";
 }
 
-static void OpenCalc(int c)
-{
-	string opts;
-	int opts2;
-	int a;
-	int b;
-	bool isAdd = false;
-	bool isSub = false;
-	bool isMulti = false;
-	bool isDivi = false;
-	bool hascons = false;
-	
-	cout << "Input a number: ";
-	cin >> a;
-	cout << "Input a second number: ";
-	cin >> b;
-	
-	cout << "Has Conditions? [y/n]: ";
-	cin >> opts;
-	
-	if (opts == "y") 
-	{
-		hascons = true;
-	}
-	
-	else if (opts == "n")
-	{
-		hascons = false;
-	}
-	
-	else
-	{
-		cout << "Unknown char.";
-	}
-	
-	cout << "Operations \n" << "[1] addition \n" << "[2] subtraction \n" << "[3] multiplication \n" << "[4] division \n"; 
-	cin >> opts2;
-	
-	/* Fuck C++ for not supporting switches as strings lmao
-	switch (opts2)
-	{
-		case 'add':
-			isAdd = true;
-			break;
-			
-		case 'sub':
-			isSub = true;
-			break;
-			
-		case 'multi':
-			isMulti = true;
-			break;
-			
-		case 'divi':
-			isDivi = true;
-			break;
-	}
-	*/
-	
-	switch (opts2)
-	{
-		case 1:
-			isAdd = true;
-			break;
-		
-		case 2:
-			isSub = true;
-			break;
-			
-		case 3:
-			isMulti = true;
-			break;
-			
-		case 4:
-			isDivi = true;
-			break;
-	}
-	
-	if (isAdd == true)
-	{
-		res = a + b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << " is either equal, greater than or less than " << c;
-			}
-		}
-		else
-		{
-			cout << res;
-		}
-	}
-	
-	if (isSub == true)
-	{
-		res = a - b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << " is either equal, greater than or less than " << c;
-			}
-		}
-		else
-		{
-			cout << res;
-		}
-	}
-	
-	if (isMulti == true)
-	{
-		res = a * b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << " is either equal, greater than or less than " << c;
-			}
-		}
-		else
-		{
-			cout << res;
-		}
-	}
-	
-	if (isDivi == true)
-	{
-		res = a / b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << " is either equal, greater than or less than " << c;
-			}
-		}
-		else
-		{
-			cout << res;
-		}
-	}
-}
-
 /*
 ============================ Sub Functions ============================
 */
@@ -326,6 +189,7 @@ static void OpenCalc(int c)
 void throwError(string errStr)
 {
 	cout << errStr;
+	isError = true;
 }
 
 /*
@@ -380,7 +244,7 @@ class Calc {
 			} else if (opts == "n") {
 				hascons = false;
 			} else {
-				cout << "Unknown Char.";
+				throwError("Unknown Character.");
 			}
 			
 			cout << "Include Multiple Operations? [y/n]: ";
@@ -391,7 +255,7 @@ class Calc {
 			} else if (opts2 == "n") {
 				multiOprd = false;
 			} else {
-				cout << "Unknown Char.";
+				throwError("Unknown Character.");
 			}
 			
 			/*
@@ -693,7 +557,6 @@ class Calc {
 	};
 		
 	Math Math;
-		
 };
 
 Calc Calculate;
@@ -882,9 +745,7 @@ Create Create;
 int main()
 {
 	
-	// Dev Test - Writing Code
-
-	// Main Stuff
+	// Write custom code
 	
 	return 0;
 	
