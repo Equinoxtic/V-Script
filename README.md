@@ -2,9 +2,9 @@
 
 Idk, not a programming language but just some fun C++ program that I'm making (emoji)
 
-Haha I made while and for loops easier in this program :clown:
+## Installation
 
-mfers mc redstone class is still wip
+Go to the releases page for the downloads!
 
 ## How to compile
 
