@@ -1,12 +1,14 @@
 /*
-V-Script-Main-Version
-1.0b
+V-Script-Dev-Version
+1.0b-dev
 */
 
 #include<iostream>
+#include<stdlib.h>
 #include<fstream>
 
 /*
+This .cpp file is only exclusive for the 'Main Developer'
 Must be compiled through a C++ IDE for an easier compiling process
 Recommended: Dev-C++
 But it can be your preference to compile it through an actual compiler
@@ -321,6 +323,11 @@ static void OpenCalc(int c)
 /*
 ============================ Sub Functions ============================
 */
+
+void throwError(string errStr)
+{
+	cout << errStr;
+}
 
 /*
 ============================ Main Classes ============================
@@ -694,13 +701,13 @@ Calc Calculate;
 
 class Create {
 	public:
-		void Obj() {
+		void Obj() 
+		{
 			int objType;
 			int extObjType;
 			int arrayObjType;
 			string strArrayObjType;
 			int extArrayObjType;
-			int arrayObjAmount;
 			int arrayLength;
 			string strObjType;
 			bool isString = false;
@@ -709,58 +716,6 @@ class Create {
 			bool isDouble = false;
 			bool isArray = false;
 			string obj;
-			
-			/*
-			================== Strings ==================
-			*/
-			
-			string str_arrObj1;
-			string str_arrObj2;
-			string str_arrObj3;
-			string str_arrObj4;
-			string str_arrObj5;
-			string str_arrObj6;
-			string str_arrObj7;
-			string str_arrObj8;
-			
-			/*
-			================== Integers ==================
-			*/
-			
-			int int_arrObj1;
-			int int_arrObj2;
-			int int_arrObj3;
-			int int_arrObj4;
-			int int_arrObj5;
-			int int_arrObj6;
-			int int_arrObj7;
-			int int_arrObj8;
-			
-			/*
-			================== Floats ==================
-			*/
-			
-			float float_arrObj1;
-			float float_arrObj2;
-			float float_arrObj3;
-			float float_arrObj4;
-			float float_arrObj5;
-			float float_arrObj6;
-			float float_arrObj7;
-			float float_arrObj8;
-			
-			/*
-			================== Doubles ==================
-			*/
-			
-			double double_arrObj1;
-			double double_arrObj2;
-			double double_arrObj3;
-			double double_arrObj4;
-			double double_arrObj5;
-			double double_arrObj6;
-			double double_arrObj7;
-			double double_arrObj8;
 			
 			cout << "Enter a new name for your object: \n";
 			cin >> obj;
@@ -822,7 +777,7 @@ class Create {
 				case 1:
 					cout << "Input some string for your object: \n";
 					cin >> objStr;
-					cout << "Object String: " <<  objStr;
+					cout << "Object String: " << objStr;
 					strObjs << "Object: " << obj << "\n" << "String: " << objStr;
 					break;
 				case 2:
@@ -830,13 +785,13 @@ class Create {
 					cin >> objInt;
 					cout << "Object Integer: " << objInt;
 					intObjs << "Object: " << obj << "\n" << "Integer: " << objInt;
-					break;					
+					break;
 				case 3:
 					cout << "Input some numbers for your object: \n";
 					cin >> objFloat;
 					cout << "Object Float: " << objFloat;
 					floObjs << "Object: " << obj << "\n" << "Float: " << objFloat;
-					break;					
+					break;
 				case 4:
 					cout << "Input some numbers for your object: \n";
 					cin >> objDouble;
@@ -845,20 +800,13 @@ class Create {
 					break;
 				case 5:
 					cout << "Select an array type: \n";
-					cout << "[1] string \n" << "[2] integer \n" << "[3] float \n" << "[4] double";
+					cout << "[1] string \n" << "[2] integer \n" << "[3] float \n" << "[4] double \n";
 					cin >> arrayObjType;
-					cout << "How many objects do you want for your array? \n";
-					cout << "[1] 3 \n" << "[2] 5 \n" << "[3] 8 \n";
-					cin >> arrayObjAmount;
+					cout << "Input the amount objects for your array: \n";
+					cin >> arrayLength;
+					cout << "Input The Elements for your array: \n";
 					break;
 			}
-			
-			/*
-			string strArray[arrayLength];
-			int intArray[arrayLength];
-			float floatArray[arrayLength];
-			double doubleArray[arrayLength];
-			*/
 			
 			switch (arrayObjType)
 			{
@@ -880,807 +828,247 @@ class Create {
 					break;
 			}
 			
-			switch (arrayObjAmount)
+			if (strArrayObjType == "string")
 			{
-				case 1:
-					arrayLength = 3;
-					break;
-				case 2:
-					arrayLength = 5;
-					break;
-				case 3:
-					arrayLength = 8;
-					break;
+				string strArray[arrayLength];
+				for (int i = 0; i < arrayLength; i++) {
+					cin >> strArray[i];
+				}
+				for (int i = 0; i < arrayLength; i++) {
+					cout << strArray[i] << " ";
+				}
 			}
 			
-			if (arrayLength == 3)
+			if (strArrayObjType == "integer")
 			{
-				cout << "Input the elements for your array: \n";
-				if (strArrayObjType == "string")
-				{
-					cout << "Element One: ";
-					cin >> str_arrObj1;
-					cout << "Element Two: ";
-					cin >> str_arrObj2;
-					cout << "Element Three: ";
-					cin >> str_arrObj3;
-					string strArray[arrayLength] = {str_arrObj1, str_arrObj2, str_arrObj3};
-					for (int i = 0; i < 3; ++i) {
-						cout << strArray[i] << " ";
-					}
+				int intArray[arrayLength];
+				for (int i = 0; i < arrayLength; i++) {
+					cin >> intArray[i];
 				}
-				else if (strArrayObjType == "integer")
-				{
-					cout << "Element One: ";
-					cin >> int_arrObj1;
-					cout << "Element Two: ";
-					cin >> int_arrObj2;
-					cout << "Element Three: ";
-					cin >> int_arrObj3;
-					int intArray[arrayLength] = {int_arrObj1, int_arrObj2, int_arrObj3};
-					for (int i = 0; i < 3; ++i) {
-						cout << intArray[i] << " ";
-					}
-				}
-				else if (strArrayObjType == "float")
-				{
-					cout << "Element One: ";
-					cin >> float_arrObj1;
-					cout << "Element Two: ";
-					cin >> float_arrObj2;
-					cout << "Element Three: ";
-					cin >> float_arrObj3;
-					float floatArray[arrayLength] = {float_arrObj1, float_arrObj2, float_arrObj3};
-					for (int i = 0; i < 3; ++i) {
-						cout << floatArray[i] << " ";
-					}
-				}
-				else if (strArrayObjType == "double")
-				{
-					cout << "Element One: ";
-					cin >> double_arrObj1;
-					cout << "Element Two: ";
-					cin >> double_arrObj2;
-					cout << "Element Three: ";
-					cin >> double_arrObj3;
-					double doubleArray[arrayLength] = {double_arrObj1, double_arrObj2, double_arrObj3};
-					for (int i = 0; i < 3; ++i) {
-						cout << doubleArray[i] << " ";
-					}
+				for (int i = 0; i < arrayLength; i++) {
+					cout << intArray[i] << " ";
 				}
 			}
 			
-			if (arrayLength == 5)
+			if (strArrayObjType == "float")
 			{
-				cout << "Input the elements for your array: \n";
-				if (strArrayObjType == "string")
-				{
-					cout << "Element One: ";
-					cin >> str_arrObj1;
-					cout << "Element Two: ";
-					cin >> str_arrObj2;
-					cout << "Element Three: ";
-					cin >> str_arrObj3;
-					cout << "Element Four: ";
-					cin >> str_arrObj4;
-					cout << "Element Five: ";
-					cin >> str_arrObj5;
-					string strArray[arrayLength] = {str_arrObj1, str_arrObj2, str_arrObj3, str_arrObj4, str_arrObj5};
-					for (int i = 0; i < 5; ++i) {
-						cout << strArray[i] << " ";
-					}
+				float floatArray[arrayLength];
+				for (int i = 0; i < arrayLength; i++) {
+					cin >> floatArray[i];
 				}
-				else if (strArrayObjType == "integer")
-				{
-					cout << "Element One: ";
-					cin >> int_arrObj1;
-					cout << "Element Two: ";
-					cin >> int_arrObj2;
-					cout << "Element Three: ";
-					cin >> int_arrObj3;
-					cout << "Element Four: ";
-					cin >> int_arrObj4;
-					cout << "Element Five: ";
-					cin >> int_arrObj5;
-					int intArray[arrayLength] = {int_arrObj1, int_arrObj2, int_arrObj3, int_arrObj4, int_arrObj5};
-					for (int i = 0; i < 5; ++i) {
-						cout << intArray[i] << " ";
-					}
-				}
-				else if (strArrayObjType == "float")
-				{
-					cout << "Element One: ";
-					cin >> float_arrObj1;
-					cout << "Element Two: ";
-					cin >> float_arrObj2;
-					cout << "Element Three: ";
-					cin >> float_arrObj3;
-					cout << "Element Four: ";
-					cin >> float_arrObj4;
-					cout << "Element Five: ";
-					cin >> float_arrObj5;
-					float floatArray[arrayLength] = {float_arrObj1, float_arrObj2, float_arrObj3, float_arrObj4, float_arrObj5};
-					for (int i = 0; i < 5; ++i) {
-						cout << floatArray[i] << " ";
-					}
-				}
-				else if (strArrayObjType == "double")
-				{
-					cout << "Element One: ";
-					cin >> double_arrObj1;
-					cout << "Element Two: ";
-					cin >> double_arrObj2;
-					cout << "Element Three: ";
-					cin >> double_arrObj3;
-					cout << "Element Four: ";
-					cin >> double_arrObj4;
-					cout << "Element Five: ";
-					cin >> double_arrObj5;
-					double doubleArray[arrayLength] = {double_arrObj1, double_arrObj2, double_arrObj3, double_arrObj4, double_arrObj5};
-					for (int i = 0; i < 5; ++i) {
-						cout << doubleArray[i] << " ";
-					}
+				for (int i = 0; i < arrayLength; i++) {
+					cout << floatArray[i] << " ";
 				}
 			}
 			
-			if (arrayLength == 8)
+			if (strArrayObjType == "double")
 			{
-				cout << "Input the elements for your array: \n";
-				if (strArrayObjType == "string")
-				{
-					cout << "Element One: ";
-					cin >> str_arrObj1;
-					cout << "Element Two: ";
-					cin >> str_arrObj2;
-					cout << "Element Three: ";
-					cin >> str_arrObj3;
-					cout << "Element Four: ";
-					cin >> str_arrObj4;
-					cout << "Element Five: ";
-					cin >> str_arrObj5;
-					cout << "Element Six: ";
-					cin >> str_arrObj6;
-					cout << "Element Seven: ";
-					cin >> str_arrObj7;
-					cout << "Element Eight: ";
-					cin >> str_arrObj8;
-					string strArray[arrayLength] = {str_arrObj1, str_arrObj2, str_arrObj3, str_arrObj4, str_arrObj5, str_arrObj6, str_arrObj7, str_arrObj8};
-					for (int i = 0; i < 8; ++i) {
-						cout << strArray[i] << " ";
-					}
+				double doubleArray[arrayLength];
+				for (int i = 0; i < arrayLength; i++) {
+					cin >> doubleArray[i];
 				}
-				else if (strArrayObjType == "integer")
-				{
-					cout << "Element One: ";
-					cin >> int_arrObj1;
-					cout << "Element Two: ";
-					cin >> int_arrObj2;
-					cout << "Element Three: ";
-					cin >> int_arrObj3;
-					cout << "Element Four: ";
-					cin >> int_arrObj4;
-					cout << "Element Five: ";
-					cin >> int_arrObj5;
-					cout << "Element Six: ";
-					cin >> int_arrObj6;
-					cout << "Element Seven: ";
-					cin >> int_arrObj7;
-					cout << "Element Eight: ";
-					cin >> int_arrObj8;
-					int intArray[arrayLength] = {int_arrObj1, int_arrObj2, int_arrObj3, int_arrObj4, int_arrObj5, int_arrObj6, int_arrObj7, int_arrObj8};
-					for (int i = 0; i < 8; ++i) {
-						cout << intArray[i] << " ";
-					}
+				for (int i = 0; i < arrayLength; i++) {
+					cout << doubleArray[i] << " ";
 				}
-				else if (strArrayObjType == "float")
-				{
-					cout << "Element One: ";
-					cin >> int_arrObj1;
-					cout << "Element Two: ";
-					cin >> float_arrObj2;
-					cout << "Element Three: ";
-					cin >> float_arrObj3;
-					cout << "Element Four: ";
-					cin >> float_arrObj4;
-					cout << "Element Five: ";
-					cin >> float_arrObj5;
-					cout << "Element Six: ";
-					cin >> float_arrObj6;
-					cout << "Element Seven: ";
-					cin >> float_arrObj7;
-					cout << "Element Eight: ";
-					cin >> float_arrObj8;
-					float floatArray[arrayLength] = {float_arrObj1, float_arrObj2, float_arrObj3, float_arrObj4, float_arrObj5, float_arrObj6, float_arrObj7, float_arrObj8};
-					for (int i = 0; i < 8; ++i) {
-						cout << floatArray[i] << " ";
-					}
-				}
-				else if (strArrayObjType == "double")
-				{
-					cout << "Element One: ";
-					cin >> double_arrObj1;
-					cout << "Element Two: ";
-					cin >> double_arrObj2;
-					cout << "Element Three: ";
-					cin >> double_arrObj3;
-					cout << "Element Four: ";
-					cin >> double_arrObj4;
-					cout << "Element Five: ";
-					cin >> double_arrObj5;
-					cout << "Element Six: ";
-					cin >> double_arrObj6;
-					cout << "Element Seven: ";
-					cin >> double_arrObj7;
-					cout << "Element Eight: ";
-					cin >> double_arrObj8;
-					double doubleArray[arrayLength] = {double_arrObj1, double_arrObj2, double_arrObj3, double_arrObj4, double_arrObj5, double_arrObj6, double_arrObj7, double_arrObj8};
-					for (int i = 0; i < 8; ++i) {
-						cout << doubleArray[i] << " ";
-					}
-				}
-			}
-		}
-	
-		void CustomClass() 
-		{
-			/*
-			============================ Strings ============================
-			*/
-			
-			string className;
-			string strObjType;
-			string opts;
-			string accessOpts;
-			string str_objField;
-			
-			/*
-			============================ Integers ============================
-			*/
-			
-			int optsObjType;
-			int extObjType;
-			int pubObjAmount = 0;
-			int privObjAmount = 0;
-			
-			/*
-			============================ Bools ============================
-			*/
-			
-			bool isString = false;
-			bool isInt = false;
-			bool isFloat = false;
-			bool isDouble = false;
-			bool isPublic = false;
-			bool isPrivate = false;
-			bool hasConstructor = false;
-			
-			/*
-			============================ Types ============================
-			*/
-			
-			string strType;
-			int intType;
-			float floatType;
-			double doubleType;
-			
-			/*
-			============================ Objects ============================
-			*/
-			
-			string objName;
-			string objName2;
-			string objName3;
-			string objName4;
-			string objName5;
-			string objName6;
-			string objName7;
-			string objName8;
-			
-			string privobjName;
-			string privobjName2;
-			string privobjName3;
-			string privobjName4;
-			string privobjName5;
-			string privobjName6;
-			string privobjName7;
-			string privobjName8;
-			
-			string objStr;
-			int objInt;
-			float objFloat;
-			double objDouble;
-			
-			cout << "Input a name for your class: \n";
-			cin >> className;
-			cout << "Include a constructor? [y/n]: ";
-			cin >> opts;
-			
-			if (opts == "y") {
-				hasConstructor = true;
-			} else if (opts == "n") {
-				hasConstructor = false;
-			} else {
-				cout << "Unknown character: " << opts;
-			}
-			
-			cout << "Input the amount of public objects (Maximum is 8): \n";
-			cin >> pubObjAmount;
-			isPublic = true;
-			cout << "Input the amount of private objects (Maximum is 8): \n";
-			cin >> privObjAmount;
-			isPrivate = true;
-			
-			if (pubObjAmount > 8 || privObjAmount > 8) {
-				cout << "FUCK YOU, DONT GO ABOVE 8 I SAID.";
-			}
-			
-			switch (pubObjAmount)
-			{
-				case 1:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 2:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 3:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> objName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 4:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> objName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> objName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 5:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> objName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> objName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> objName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 6:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> objName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> objName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> objName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 6 (name): ";
-					cin >> objName6;
-					cout << "Object 6 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 7:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> objName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> objName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> objName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 6 (name): ";
-					cin >> objName6;
-					cout << "Object 6 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 7 (name): ";
-					cin >> objName7;
-					cout << "Object 7 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 8:
-					cout << "Object 1 (name): ";
-					cin >> objName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> objName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> objName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> objName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n [3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> objName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 6 (name): ";
-					cin >> objName6;
-					cout << "Object 6 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 7 (name): ";
-					cin >> objName7;
-					cout << "Object 7 (type): \n";
-					cout << "[1] string \n [2] integer \n [3] float \n [4] double \n";
-					cin >> optsObjType;
-					cout << "Object 8 (name): ";
-					cin >> objName8;
-					cout << "Object 8 (type): \n";
-					cout << "[1] string \n [2] integer \n [3] float \n [4] double \n";
-					cin >> optsObjType;
-					break;
-			}
-			
-			switch (privObjAmount)
-			{
-				case 1:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 2:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 3:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> privobjName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 4:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> privobjName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> privobjName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 5:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> privobjName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> privobjName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> privobjName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 6:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> privobjName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> privobjName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> privobjName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 6 (name): ";
-					cin >> privobjName6;
-					cout << "Object 6 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 7:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> privobjName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> privobjName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> privobjName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 6 (name): ";
-					cin >> privobjName6;
-					cout << "Object 6 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 7 (name): ";
-					cin >> privobjName7;
-					cout << "Object 7 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					break;
-				case 8:
-					cout << "Object 1 (name): ";
-					cin >> privobjName;
-					cout << "Object 1 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 2 (name): ";
-					cin >> privobjName2;
-					cout << "Object 2 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 3 (name): ";
-					cin >> privobjName3;
-					cout << "Object 3 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 4 (name): ";
-					cin >> privobjName4;
-					cout << "Object 4 (type): \n";
-					cout << "[1] string \n[2] integer \n [3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 5 (name): ";
-					cin >> privobjName5;
-					cout << "Object 5 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 6 (name): ";
-					cin >> privobjName6;
-					cout << "Object 6 (type): \n";
-					cout << "[1] string \n[2] integer \n[3] float \n[4] double \n";
-					cin >> optsObjType;
-					cout << "Object 7 (name): ";
-					cin >> privobjName7;
-					cout << "Object 7 (type): \n";
-					cout << "[1] string \n [2] integer \n [3] float \n [4] double \n";
-					cin >> optsObjType;
-					cout << "Object 8 (name): ";
-					cin >> privobjName8;
-					cout << "Object 8 (type): \n";
-					cout << "[1] string \n [2] integer \n [3] float \n [4] double \n";
-					cin >> optsObjType;
-					break;
-			}
-			
-			switch (optsObjType)
-			{
-				case 1:
-					isString = true;
-					strObjType = "string";
-					extObjType = 1;
-					break;
-				case 2:
-					isInt = true;
-					strObjType = "integer";
-					extObjType = 2;
-					break;
-				case 3:
-					isFloat = true;
-					strObjType = "float";
-					extObjType = 3;
-					break;
-				case 4:
-					isDouble = true;
-					strObjType = "double";
-					extObjType = 4;
-					break;
-			}
-			
-			cout << "Select an Object from " << className  << ": \n";
-			cout << "Public Objects: \n" << objName << "\n" << objName2 << "\n" << objName3 << "\n" << objName4 << "\n" << objName5 << "\n" << objName6 << "\n" << objName7 << "\n" << objName8 << "\n";
-			cout << "Private Objects: \n" << privobjName << "\n" << privobjName2 << "\n" << privobjName3 << "\n" << privobjName4 << "\n" << privobjName5 << "\n" << privobjName6 << "\n" << privobjName7 << "\n" << privobjName8 << "\n";	
-			
-			if (isPublic == true)
-			{
-				cin >> str_objField;
-				if (str_objField == objName || str_objField == objName2 || str_objField == objName3 || str_objField == objName4 || str_objField == objName5 || str_objField == objName6 || str_objField == objName7 || str_objField == objName8)
-				{
-					if (strObjType == "string") {
-						cout << "Input some string: \n";
-						cin >> objStr;
-						cout << "Name: " << str_objField << "\n";
-						cout << "String: " << objStr << "\n";
-					} else if (strObjType == "integer") {
-						cout << "Input some numbers: \n";
-						cin >> objInt;
-						cout << "Name: " << str_objField << "\n";
-						cout << "Integer: " << objInt << "\n";
-					} else if (strObjType == "float") {
-						cout << "Input some numbers: \n";
-						cin >> objFloat;
-						cout << "Name: " << str_objField << "\n";
-						cout << "Float: " << objFloat << "\n";
-					} else if (strObjType == "double") {
-						cout << "Input some numbers: \n";
-						cin >> objDouble;
-						cout << "Name: " << str_objField << "\n";
-						cout << "Double: " << objDouble << "\n";
-					}
-				} else {
-					cout << "Unknown Object: " << str_objField;
-				}
-			}
-			
-			else if (isPrivate == true)
-			{
-				cout << "Object is private and cannot be accessed.";
 			}
 		}
 };
 
 Create Create;
+
+class MCRedstone
+{
+	public:
+		void CreateCircuit()
+		{
+			/*
+			=== Strings ===
+			*/
+
+			string strSource;
+			string strFace;
+			string strOutput;
+			string coutOpts;
+
+			/*
+			=== Ints ===
+			*/
+
+			int optsFacing;
+			int optsSrcBlock;
+			int extSrcBlock;
+			int extSrcFace;
+			int redstoneLength;
+
+			/*
+			=== Floats ===
+			*/
+
+			float redstonePower;
+			float redstoneSignal = redstonePower - 0.5;
+
+			/*
+			=== Bools - Source Block ===
+			*/
+
+			bool isLever;
+			bool isBOR;
+			bool isDS;
+			bool isOre;
+			bool isButton;
+			bool isPressure;
+
+			/*
+			=== Bools - Face ===
+			*/
+
+			bool isForward = false;
+			bool isBackward = false;
+			bool isLeft = false;
+			bool isRight = false;
+
+			/*
+			=== Arrays ===
+			*/
+
+			string redstoneList[redstoneLength];
+
+			/*
+			=== Other ===
+			*/
+
+			bool coutRedstoneList = false;
+			bool powered = false;
+
+			cout << "Select Source Block: \n";
+			cout << "[1] Lever\n[2] Block Of Redstone\n[3] Daylight Sensor\n[4] Redstone Ore\n[5] Button\n[6] Pressure Plate";
+			cin >> optsSrcBlock;
+
+			switch (optsSrcBlock)
+			{
+				case 1:
+					strSource = "lever";
+					isLever = true;
+					extSrcBlock = 1;
+					break;
+				case 2:
+					strSource = "block of redstone";
+					isBOR = true;
+					extSrcBlock = 2;
+					break;
+				case 3:
+					strSource = "daylight sensor";
+					isDS = true;
+					extSrcBlock = 3;
+					break;
+				case 4:
+					strSource = "redstone ore";
+					isOre = true;
+					extSrcBlock = 4;
+					break;
+				case 5:
+					strSource = "button";
+					isButton = true;
+					extSrcBlock = 5;
+					break;
+				case 6:
+					strSource = "pressure plate";
+					isPressure = true;
+					extSrcBlock = 6;
+					break;
+			}
+
+			cout << "Input the amount of Redstone (Maximum is 64): \n";
+			cin >> redstoneLength;
+
+			if (redstoneLength > 64) {
+				cout << "Maximum is 64.";
+			}
+
+			switch (extSrcBlock)
+			{
+				case 1:
+					strOutput = "Source: lever";
+					redstonePower = 7.5;
+					break;
+				case 2:
+					strOutput = "Source: block of redstone";
+					redstonePower = 9.5;
+					break;
+				case 3:
+					strOutput = "Source: daylight sensor";
+					redstonePower = 6.0;
+					break;
+				case 4:
+					strOutput = "Source: redstone ore";
+					redstonePower = 6.5;
+					break;
+				case 5:
+					strOutput = "Source: button";
+					redstonePower = 7.5;
+					break;
+				case 6:
+					strOutput = "Source: pressure plate";
+					redstonePower = 7.0;
+					break;
+			}
+			
+			cout << strOutput;
+			cout << "Redstone Power: " << redstonePower << "\n";
+			cout << "Input the directions for the redstones: \n";
+			cout << "[1] Left\n[2] Forward\n[3] Backward\n[4] Right";
+			cin >> optsFacing;
+
+			switch (optsFacing)
+			{
+				case 1:
+					isLeft = true;
+					strFace = "left";
+					extSrcFace = 1;
+					break;
+				case 2:
+					isForward = true;
+					strFace = "forward";
+					extSrcFace = 2;
+					break;
+				case 3:
+					isBackward = true;
+					strFace = "backward";
+					extSrcFace = 3;
+					break;
+				case 4:
+					isRight = true;
+					strFace = "right";
+					extSrcFace = 4;
+					break;
+			}
+
+			for (int i = 0; i < redstoneLength; i++) {
+				cin >> redstoneList[i];
+			}
+
+			cout << "Print all? [y/n]: ";
+			cin >> coutOpts;
+
+			if (coutOpts == "y") {
+				coutRedstoneList = true;
+			} else if (coutOpts == "n") {
+				coutRedstoneList = false;
+			} else {
+				cout << "Unknown character: " << coutOpts;
+			}
+
+			if (coutRedstoneList == true) {
+				for (int i = 0; i < redstoneLength; i++) {
+					cout << redstoneList[i] << "\n";
+				}
+			}
+
+			
+		}
+};
+
+MCRedstone MCRCreate;
 
 /*
 ============================ Code Writing ============================
@@ -1689,7 +1077,18 @@ Create Create;
 int main()
 {
 	
-	// Write custom code here
+	// Write custom code
+
+	// For exiting
+
+	string pressC;
+	cout << "Type in ''C'' to close the program\n> ";
+	cin >> pressC;
+
+	if (pressC != "C")
+	{
+		throwError("Unknown character.");
+	}
 	
 	return 0;
 	
