@@ -1078,17 +1078,6 @@ int main()
 {
 	
 	// Write custom code
-
-	// For exiting
-
-	string pressC;
-	cout << "Type in ''C'' to close the program\n> ";
-	cin >> pressC;
-
-	if (pressC != "C")
-	{
-		throwError("Unknown character.");
-	}
 	
 	return 0;
 	
