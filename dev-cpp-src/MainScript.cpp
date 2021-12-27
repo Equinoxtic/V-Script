@@ -533,6 +533,223 @@ class Create {
 
 Create Create;
 
+class Loops
+{
+	public:
+		void cinFor()
+		{
+			int ivar;
+			int a;
+			int b;
+			int c;
+			int i;
+			string secopts;
+			string thropts;
+			bool opta = false;
+			bool optb = false;
+			bool cont;
+			bool br;
+
+			cout << "=== For Loop Builder ===\nFirst FL method / Second FL method [1/2]: ";
+
+			int opts;
+
+			cin >> opts;
+
+			
+			cout << "for (int i = null;)\n";
+			cout << "Input the value for 'i': ";
+			cin >> ivar;
+
+			switch (opts)
+			{
+				case 1:
+					opta = true;
+					break;
+				case 2:
+					optb = true;
+					break;
+			}
+
+			if (opta == true)
+			{
+				cout << "for (int i = " << ivar << "; i <= a;\n";
+				cout << "Input the value for 'a': ";
+				cin >> a;
+				cout << "for (int i = " << ivar << "; i <= " << a << "; i + b\n)";
+				cout << "Input the value for 'b': ";
+				cin >> b;
+				cout << "for (int i = " << ivar << "; i <= " << a << "; i + " << b << ") {...}\n";
+			}
+
+			if (optb == true)
+			{
+				cout << "for (int i = " << ivar << "; i <= a;\n";
+				cout << "Input the value for 'a': ";
+				cin >> a;
+				cout <<"for (int i = " << ivar << "; i <= " << a << "; i++) {...}";
+			}
+
+			cout << "if (i == c) {...}\n";
+			cout << "Input the value for 'c': ";
+			cin >> c;
+
+			cout << "Set Break Syntax as [t/f]: ";
+			cin >> secopts;
+
+			if (secopts == "t") {
+				br = true;
+			} else if (secopts == "f") {
+				br = false;
+			} else {
+				throwError("Unknown Character.");
+			}
+
+			cout << "Set Cotinue Syntax as [t/f]: ";
+			cin >> thropts;
+
+			if (thropts == "t") {
+				cont = true;
+			} else if (thropts == "f") {
+				cont = false;
+			} else {
+				throwError("Unknown Character.");
+			}
+
+			if (opta == true)
+			{
+				for (int i = ivar; i <= a; i + b)
+				{
+					i++;
+					cout << i << " ";
+					if (i == c)
+					{
+						if (cont == true) {
+							continue;
+						} else if (br == true) {
+							break;
+						}
+					}
+				}
+			}
+
+			if (optb == true)
+			{
+				for (int i = ivar; i <= a; i++)
+				{
+					cout << i << " ";
+					if (i == c)
+					{
+						if (cont == true) {
+							continue;
+						} else if (br == true) {
+							break;
+						}
+					}
+				}
+			}
+		}
+
+		void cinWhile()
+		{
+			int ivar;
+			int a;
+			int b;
+			bool opta = false;
+			bool optb = false;
+			bool cont;
+			bool br;
+			string secopts;
+			string thropts;
+			
+			cout << "=== While Loop builder ===\nFirst WL method / Second WL method [1/2]: ";
+			
+			int opts;
+
+			cin >> opts;
+
+			switch (opts)
+			{
+				case 1:
+					opta = true;
+					break;
+				case 2:
+					optb = true;
+					break;
+			}
+
+			cout << "int i = null;\n";
+			cout << "Input the value for 'i': ";
+			cin >> ivar;
+
+			cout << "while (i < a) {...}\n";
+			cout << "Input the value for 'a': ";
+			cin >> a;
+
+			cout << "if (i == b) {...}\n";
+			cout << "Input the value for 'b': ";
+			cin >> b;
+
+			cout << "Set Break Syntax as [t/f]: ";
+			cin >> secopts;
+
+			if (secopts == "t") {
+				br = true;
+			} else if (secopts == "f") {
+				br = false;
+			} else {
+				throwError("Unknown Character.");
+			}
+
+			cout << "Set Continue Syntax as [t/f]: ";
+			cin >> thropts;
+
+			if (thropts == "t") {
+				cont = true;
+			} else if (thropts == "f") {
+				cont = false;
+			} else {
+				throwError("Unknown Character.");
+			}
+
+			if (opta == true) {
+				int i = ivar;
+				while (i < a)
+				{
+					cout << i << " ";
+					i++;
+					if (i == b)
+					{
+						if (br == true) {
+							break;
+						} else if (cont == true)  {
+							continue;
+						}
+					}
+				}
+			}
+
+			if (optb == true) {
+				int i = ivar;
+				do {
+					i++;
+					cout << i << " ";
+					if (i == b)
+					{
+						if (br == true) {
+							break;
+						} else if (cont == true) {
+							continue;
+						}
+					}
+				}
+				while (i < a);
+			}
+		}
+};
+
+Loops CinLoops;
+
 /*
 ============================ Code Writing ============================
 */
