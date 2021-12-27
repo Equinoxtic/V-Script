@@ -218,17 +218,14 @@ class Calc {
 		/*
 		This is the new calculator
 		*/
-		void CalcStart(int c, int d, int e) {
+		void CalcStart() {
 			int a;
 			int b;
+			int c;
 			int curOpr;
-			int secCurOpr;
-			int thrCurOpr;
+			int extCurOpr;
 			bool hascons = false;
-			bool multiOprd = false;
 			string opts;
-			string opts2;
-			string opts3;
 			
 			cout << "Input a number: ";
 			cin >> a;
@@ -240,36 +237,14 @@ class Calc {
 			cin >> opts;
 			
 			if (opts == "y") {
+				cout << "Input the number for the condition: ";
+				cin >> c;
 				hascons = true;
 			} else if (opts == "n") {
 				hascons = false;
 			} else {
 				throwError("Unknown Character.");
 			}
-			
-			cout << "Include Multiple Operations? [y/n]: ";
-			cin >> opts2;
-			
-			if (opts2 == "y") {
-				multiOprd = true;
-			} else if (opts2 == "n") {
-				multiOprd = false;
-			} else {
-				throwError("Unknown Character.");
-			}
-			
-			/*
-			cout << "Include Decimals? [y/n]: ";
-			cin >> opts3;
-			
-			if (opts3 == "y") {
-				isDeci = true;
-			} else if (opts3 == "n") {
-				isDeci == false;
-			} else {
-				cout << "Unknown Char.";
-			}
-			*/
 			
 			cout << "Operations \n" << "[1] addition \n" << "[2] subtraction \n" << "[3] multiplication \n" << "[4] division \n";
 			cin >> curOpr;
@@ -283,232 +258,53 @@ class Calc {
 			{
 				case 1:
 					addCurNums = true;
+					extCurOpr = 1;
 					break;
 				
 				case 2:
 					subCurNums = true;
+					extCurOpr = 2;
 					break;
 					
 				case 3:
 					multiCurNums = true;
+					extCurOpr = 3;
 					break;
 					
 				case 4:
 					diviCurNums = true;
+					extCurOpr = 4;
 					break;
 			}
-			
-			if (multiOprd == true) {
-				cout << "Operations (Second Operation) \n" << "[1] addition \n" << "[2] subtraction \n" << "[3] multiplication \n" << "[4] division \n";
-				cin >> secCurOpr;
-			}
-			
-			bool secAddCurNums = false;
-			bool secSubCurNums = false;
-			bool secMultiCurNums = false;
-			bool secDiviCurNums = false;
-			
-			switch (secCurOpr)
+
+			switch (extCurOpr)
 			{
 				case 1:
-					secAddCurNums = true;
-					break;
-					
-				case 2:
-					secSubCurNums = true;
-					break;
-					
-				case 3:
-					secMultiCurNums = true;
-					break;
-					
-				case 4:
-					secDiviCurNums = true;
-					break;
-			}
-			
-			if (multiOprd == true) {
-				cout << "Operations (Third Operation) \n" << "[1] addition \n" << "[2] subtraction \n" << "[3] multiplication \n" << "[4] division \n";
-				cin >> thrCurOpr;
-			}
-			
-			bool thrAddCurNums = false;
-			bool thrSubCurNums = false;
-			bool thrMultiCurNums = false;
-			bool thrDiviCurNums = false;
-			
-			switch (thrCurOpr)
-			{
-				case 1:
-					thrAddCurNums = true;
-					break;
-					
-				case 2:
-					thrSubCurNums = true;
-					break;
-					
-				case 3:
-					thrMultiCurNums = true;
-					break;
-					
-				case 4:
-					thrDiviCurNums = true;
-					break;
-			}
-			
-			if (addCurNums == true) {
-				if (multiOprd == true) {
-					if (secAddCurNums == true) {
-						res = a + b + d;
-						if (thrDiviCurNums == true) {
-							res = a + b + d / e;
-						}
-					} else if (secSubCurNums == true) {
-						res = a + b - d;
-						if (thrMultiCurNums == true) {
-							res = a + b - d * e;
-						}
-					} else if (secMultiCurNums == true) {
-						res = a + b * d;
-						if (thrSubCurNums == true) {
-							res = a + b * d - e;
-						}
-					} else if (secDiviCurNums == true) {
-						res = a + b / d;
-						if (thrAddCurNums == true) {
-							res = a + b / d + e;
-						}
-					}
-				} else {
 					res = a + b;
-				}
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					} else {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
-			}
-		
-			if (subCurNums == true) {
-				if (multiOprd == true) {
-					if (secAddCurNums == true) {
-						res = a - b + d;
-						if (thrDiviCurNums == true) {
-							res = a - b + d / e;
-						}
-					} else if (secSubCurNums == true) {
-						res = a - b - d;
-						if (thrMultiCurNums == true) {
-							res = a - b - d * e;
-						}
-					} else if (secMultiCurNums == true) {
-						res = a - b * d;
-						if (thrSubCurNums == true) {
-							res = a - b * d - e;
-						}
-					} else if (secDiviCurNums == true) {
-						res = a - b / d;
-						if (thrAddCurNums == true) {
-							res = a - b / d + e;
-						}
-					}
-				} else {
+					break;
+
+				case 2:
 					res = a - b;
-				}
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					} else {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
-			}
-			
-			if (multiCurNums == true) {
-				if (multiOprd == true) {
-					if (secAddCurNums == true) {
-						res = a * b + d;
-						if (thrDiviCurNums == true) {
-							res = a * b + d / e;
-						}
-					} else if (secSubCurNums == true) {
-						res = a * b - d;
-						if (thrMultiCurNums == true) {
-							res = a * b - d * e;
-						}
-					} else if (secMultiCurNums == true) {
-						res = a * b * d;
-						if (thrSubCurNums == true) {
-							res = a * b * d - e;
-						}
-					} else if (secDiviCurNums == true) {
-						res = a * b / d;
-						if (thrAddCurNums == true) {
-							res = a * b / d + e;
-						}
-					}
-				} else {
+					break;
+
+				case 3:
 					res = a * b;
-				}
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					} else {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
-			}
-			
-			if (diviCurNums == true) {
-				if (multiOprd == true) {
-					if (secAddCurNums == true) {
-						res = a / b + d;
-						if (thrDiviCurNums == true) {
-							res = a / b + d / e;
-						}
-					} else if (secMultiCurNums == true) {
-						res = a / b - d;
-						if (thrSubCurNums == true) {
-							res = a / b - d * e;
-						}
-					} else if (secSubCurNums == true) {
-						res = a / b * d;
-						if (thrMultiCurNums == true) {
-							res = a / b * d - e;
-						}
-					} else if (secAddCurNums == true) {
-						res = a / b / d;
-						if (thrDiviCurNums == true) {
-							res = a / b / d + e;
-						}
-					}
-				} else {
+					break;
+
+				case 4:
 					res = a / b;
-				}
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					} else {	
-						cout << res;
-					}
-				} else {
+					break;
+			}
+
+			if (hascons == true) {
+				if (res >= c || res <= c) {
 					cout << res;
 				}
+			} else {
+				cout << res;
 			}
 		}
-		/*
-		If you prefer using the old one:
-		- Type In "OpenCalc" in "int main()"
-		- Fill The "OpenCalc" function's args (arguements)
-		*/
+
 	class Math {
 		public:
 			void Add(int a, int b, int c, bool hascons) {
@@ -555,7 +351,6 @@ class Calc {
 				}
 			}
 	};
-		
 	Math Math;
 };
 
