@@ -19,7 +19,7 @@ Simply do this, and then click "Download ZIP":
 
 ### Cloning the Repository
 
-Or if you have Git downloaded, open up "cmd", and then type in "git clone https://github.com/Equinoxtic/V-Script"
+If you have Git downloaded, open up "cmd", and then type in "git clone https://github.com/Equinoxtic/V-Script"
 
 ## How to compile
 
