@@ -13,7 +13,7 @@ https://github.com/Equinoxtic/V-Script/releases
 
 ### Get the most latest version
 
-Or simply do this, and then click "Download ZIP":
+Simply do this, and then click "Download ZIP":
 
 ![image](https://user-images.githubusercontent.com/86795271/147416169-ae5a9731-fae3-4b52-b5d0-4c658170ddd5.png)
 
