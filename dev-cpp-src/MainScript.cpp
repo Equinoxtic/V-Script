@@ -529,6 +529,56 @@ class Create {
 				}
 			}
 		}
+	
+		void CustomClass()
+		{
+			string className;
+			string opts;
+			int constructArgLength;
+			int objLength;
+			bool hasContructor;
+			
+			cout << "=== Class Builder ===\nEnter a name for your class: ";
+			cin >> className;
+
+			cout << "Include a contructor? [y/n]: ";
+			cin >> opts;
+
+			if (opts == "y") {
+				hasContructor = true;
+			} else if (opts == "n") {
+				hasContructor = false;
+			} else {
+				throwError("Unknown Character.");
+			}
+
+			if (hasContructor == true)
+			{
+				cout << "\nInput the amount of arguments for your contructor: ";
+				cin >> constructArgLength;
+				string contructorArgList[constructArgLength];
+				cout << "Input the name of the arguments: \n";
+				for (int i = 0; i < constructArgLength; i++) {
+					cin >> contructorArgList[i];
+				}
+				cout << "\nConstructor arguments: ";
+				for (int i = 0; i < constructArgLength; i++) {
+					cout << contructorArgList[i] << " ";
+				}
+			}
+
+			cout << "\nInput the amount of objects for your class: ";
+			cin >> objLength;
+			string objList[objLength];
+			cout << "Input the name for the objects of your class: \n";
+			for (int i = 0; i < objLength; i++) {
+				cin >> objList[i];
+			}
+			cout << "\nClass Objects: \n";
+			for (int i = 0; i < objLength; i++) {
+				cout << objList[i] << " ";
+			}
+		}
 };
 
 Create Create;
