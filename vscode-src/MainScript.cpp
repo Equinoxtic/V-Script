@@ -1,6 +1,6 @@
 /*
 V-Script-Main-Version
-1.1b
+1.12b
 */
 
 #include<iostream>
