@@ -57,3 +57,40 @@ MinGW (download): https://sourceforge.net/projects/mingw/
 - It should show this up:
 
 ![image](https://user-images.githubusercontent.com/86795271/147414694-4b6c77b6-4f76-4d48-be1b-ab61e7b5df62.png)
+
+- Next step, keep "cmd" on, or open it up again if you'd happen to close it.
+- Type all of these in "cmd":
+
+```
+mkdir SampleProgram
+cd SampleProgram
+code .
+```
+
+- It should open up VS-Code
+- Next, make a new file and name it anything, and it SHOULD have a '.cpp' at the end.
+
+![image](https://user-images.githubusercontent.com/86795271/147572026-ca21b440-929b-4542-827f-604c9bea1816.png)
+
+![image](https://user-images.githubusercontent.com/86795271/147572061-59506938-39a7-40ed-aff9-9ec0b761f25b.png)
+
+- Next copy and paste his code:
+
+```
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "Hello World!";
+}
+```
+
+- After that, press CTRL + SHIFT + B.
+- And then find, "C/C++: g++.exe build active file"
+- If you found it, press enter and it should make the .exe file for your program
+- Next after that, open up your terminal and the type in .\{Filename}
+- And it should output the code in the terminal.
+
+And there we go! You're pretty much ready to compile the program.
