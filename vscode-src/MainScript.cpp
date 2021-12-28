@@ -32,8 +32,14 @@ ofstream douObjs("objs/doubleObjs.txt");
 bool isError = false;
 
 /*
-============================ Sub-Functions Initialization ============================
+============================ Sub-Functions ============================
 */
+
+void throwError(string errStr)
+{
+	cout << errStr;
+	isError = true;
+}
 
 void ExitPrompt(string extStr)
 {
@@ -45,6 +51,94 @@ void ExitPrompt(string extStr)
 /*
 ============================ Main Functions ============================
 */
+
+void CreateArray()
+{
+	string objType;
+	int extObjType;
+	int opts;
+	int arrayLength;
+
+	cout << "Array Type: \n";
+	cout << "[1] string\n[2] integer\n[3] float\n[4] double\n\n";
+	cin >> opts;
+
+	switch (opts)
+	{
+		case 1:
+			objType = "string";
+			extObjType = 1;
+			break;
+
+		case 2:
+			objType = "integer";
+			extObjType = 2;
+			break;
+
+		case 3:
+			objType = "float";
+			extObjType = 3;
+			break;
+
+		case 4:
+			objType = "double";
+			extObjType = 4;
+			break;
+	}
+
+	cout << "\nInput the length for your array: ";
+	cin >> arrayLength;
+	cout << "\nInput the elements for your array: \n";
+
+	string stringArray[arrayLength];
+	int intArray[arrayLength];
+	float floatArray[arrayLength];
+	double doubleArray[arrayLength];
+
+	switch (extObjType)
+	{
+		case 1:
+			for (int i = 0; i < arrayLength; i++) {
+				cin >> stringArray[i];
+			}
+			cout << "\nArray Elements: \n";
+			for (int i = 0; i < arrayLength; i++) {
+				cout << stringArray[i] << " ";
+			}
+		break;
+
+		case 2:
+			for (int i = 0; i < arrayLength; i++) {
+				cin >> intArray[i];
+			}
+			cout << "\nArray Elements: \n";
+			for (int i = 0; i < arrayLength; i++) {
+				cout << intArray[i] << " ";
+			}
+		break;
+
+		case 3:
+			for (int i = 0; i < arrayLength; i++) {
+				cin >> floatArray[i];
+			}
+			cout << "\nArray Elements: \n";
+			for (int i = 0; i < arrayLength; i++) {
+				cout << floatArray[i] << " ";
+			}
+		break;
+
+		case 4:
+			for (int i = 0; i < arrayLength; i++) {
+				cin >> doubleArray[i];
+			}
+			cout << "\nArray Elements: \n";
+			for (int i = 0; i < arrayLength; i++) {
+				cout << doubleArray[i] << " ";
+			}
+		break;
+	}
+	ExitPrompt("--------------------------------------------");
+}
 
 void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool cont, bool br)
 {
@@ -194,16 +288,6 @@ static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool di
 	}
 	cout << res << "\n";
 	ExitPrompt("--------------------------------------------");
-}
-
-/*
-============================ Sub Functions ============================
-*/
-
-void throwError(string errStr)
-{
-	cout << errStr;
-	isError = true;
 }
 
 /*
