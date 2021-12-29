@@ -90,7 +90,12 @@ int main()
 - After that, press CTRL + SHIFT + B.
 - And then find, "C/C++: g++.exe build active file"
 - If you found it, press enter and it should make the .exe file for your program
-- Next after that, open up your terminal and the type in .\{Filename}
+- Next after that, open up your terminal and the type in: 
+
+```
+.\{Filename}
+```
+
 - And it should output the code in the terminal.
 
 And there we go! You're pretty much ready to compile the program.
