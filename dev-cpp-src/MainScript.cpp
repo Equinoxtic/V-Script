@@ -17,6 +17,22 @@ Recommended: MinGW
 using namespace std;
 
 /*
+============================ Version Checker============================
+*/
+
+string curVers = "1.2";
+
+void versionChecker(string curVersion)
+{
+	if (curVersion != "1.2")
+	{
+		cout << "This version of V-Script is outdated!\n";
+		cout << "Please check out / download the latest release: \n";
+		cout << "https://github.com/Equinoxtic/V-Script/releases \n";
+	}
+}
+
+/*
 ============================ File Initialization ============================
 */
 
@@ -39,6 +55,21 @@ void throwError(string errStr)
 {
 	cout << errStr;
 	isError = true;
+}
+
+void outputStr(string str)
+{
+	cout << str;
+}
+
+void outputNum(int num)
+{
+	cout << num;
+}
+
+void outputCustomFunc(string funcName)
+{
+	cout << funcName << "() {\n";
 }
 
 /*
@@ -132,7 +163,7 @@ void CreateArray()
 	}
 }
 
-static void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool cont, bool br)
+void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool cont, bool br)
 {
 	if (firv == true)
 	{
@@ -146,7 +177,7 @@ static void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool c
 				{
 					continue;
 				}
-				
+
 				if (br == true)
 				{
 					break;
@@ -154,7 +185,7 @@ static void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool c
 			}
 		}
 	}
-	
+
 	if (secv == true)
 	{
 		int combs = b + c;
@@ -167,7 +198,7 @@ static void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool c
 				{
 					continue;
 				}
-				
+
 				if (br == true)
 				{
 					break;
@@ -177,7 +208,7 @@ static void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool c
 	}
 }
 
-static void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, bool br)
+void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, bool br)
 {
 	if (nor == true)
 	{
@@ -192,7 +223,7 @@ static void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, b
 				{
 					continue;
 				}
-				
+
 				if (br == true)
 				{
 					break;
@@ -200,7 +231,7 @@ static void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, b
 			}
 		}
 	}
-	
+
 	if (isdo == true)
 	{
 		int i = ivar;
@@ -214,7 +245,7 @@ static void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, b
 				{
 					continue;
 				}
-				
+
 				if (br == true)
 				{
 					break;
@@ -228,7 +259,7 @@ static void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, b
 int res;
 
 static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool divi, bool hascons)
-{	
+{
 	if (add == true)
 	{
 		res = a + b;
@@ -240,7 +271,7 @@ static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool di
 			}
 		}
 	}
-	
+
 	if (sub == true)
 	{
 		res = a - b;
@@ -252,7 +283,7 @@ static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool di
 			}
 		}
 	}
-	
+
 	if (multi == true)
 	{
 		res = a * b;
@@ -264,7 +295,7 @@ static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool di
 			}
 		}
 	}
-	
+
 	if (divi == true)
 	{
 		res = a / b;
@@ -288,11 +319,11 @@ class Out {
 		void OutStr(string str) {
 			cout << str;
 		}
-	
+
 		void OutInt(int num) {
 			cout << num;
 		}
-	
+
 		void OutFloat(float num){
 			cout << num;
 		}
@@ -313,16 +344,16 @@ class Calc {
 			int extCurOpr;
 			bool hascons = false;
 			string opts;
-			
+
 			cout << "Input a number: ";
 			cin >> a;
-			
+
 			cout << "Input a second number: ";
 			cin >> b;
-			
+
 			cout << "Include Conditions? [y/n]: ";
 			cin >> opts;
-			
+
 			if (opts == "y") {
 				cout << "Input the number for the condition: ";
 				cin >> c;
@@ -332,32 +363,32 @@ class Calc {
 			} else {
 				throwError("Unknown Character.");
 			}
-			
+
 			cout << "Operations \n" << "[1] addition \n" << "[2] subtraction \n" << "[3] multiplication \n" << "[4] division \n";
 			cin >> curOpr;
-			
+
 			bool addCurNums = false;
 			bool subCurNums = false;
 			bool multiCurNums = false;
 			bool diviCurNums = false;
-			
+
 			switch (curOpr)
 			{
 				case 1:
 					addCurNums = true;
 					extCurOpr = 1;
 					break;
-				
+
 				case 2:
 					subCurNums = true;
 					extCurOpr = 2;
 					break;
-					
+
 				case 3:
 					multiCurNums = true;
 					extCurOpr = 3;
 					break;
-					
+
 				case 4:
 					diviCurNums = true;
 					extCurOpr = 4;
@@ -399,34 +430,34 @@ class Calc {
 				if (hascons == true) {
 					if (res >= c || res <= c) {
 						cout << res;
-					} 
+					}
 				} else {
 					cout << res;
 				}
 			}
-			
+
 			void Sub(int a, int b, int c, bool hascons) {
 				res = a - b;
 				if (hascons == true) {
 					if (res >= c || res <= c) {
 						cout << res;
-					} 
+					}
 				} else {
 					cout << res;
 				}
 			}
-			
+
 			void Multiply(int a, int b, int c, bool hascons) {
 				res = a * b;
 				if (hascons == true) {
 					if (res >= c || res <= c) {
 						cout << res;
-					} 
+					}
 				} else {
 					cout << res;
 				}
 			}
-			
+
 			void Divide(int a, int b, int c, bool hascons) {
 				res = a / b;
 				if (hascons == true) {
@@ -445,7 +476,7 @@ Calc Calculate;
 
 class Create {
 	public:
-		void Obj() 
+		void Obj()
 		{
 			int objType;
 			int extObjType;
@@ -460,21 +491,21 @@ class Create {
 			bool isDouble = false;
 			bool isArray = false;
 			string obj;
-			
+
 			cout << "Enter a new name for your object: \n";
 			cin >> obj;
-			
+
 			cout << "Object Type: \n";
 			cout << "[1] string \n" << "[2] integer \n" << "[3] float \n" << "[4] double \n" << "[5] array \n";
 			cin >> objType;
-			
+
 			switch (objType)
 			{
 				case 1:
 					isString = true;
 					strObjType = "string";
 					extObjType = 1;
-					break;	
+					break;
 				case 2:
 					isInt = true;
 					strObjType = "integer";
@@ -496,12 +527,12 @@ class Create {
 					extObjType = 5;
 					break;
 			}
-			
+
 			string opts;
-			
+
 			cout << "Create object? [y/n]: ";
 			cin >> opts;
-			
+
 			if (opts == "y") {
 				cout << "Created Object: " << obj << "\n";
 				cout << "Object Type: " << strObjType << "\n\n";
@@ -510,12 +541,12 @@ class Create {
 			} else {
 				cout << "Unknown Character: " << opts;
 			}
-			
+
 			string objStr;
 			int objInt;
 			float objFloat;
 			double objDouble;
-			
+
 			switch (extObjType)
 			{
 				case 1:
@@ -551,7 +582,7 @@ class Create {
 					cout << "Input The Elements for your array: \n";
 					break;
 			}
-			
+
 			switch (arrayObjType)
 			{
 				case 1:
@@ -571,7 +602,7 @@ class Create {
 					extArrayObjType = 4;
 					break;
 			}
-			
+
 			if (strArrayObjType == "string")
 			{
 				string strArray[arrayLength];
@@ -582,7 +613,7 @@ class Create {
 					cout << strArray[i] << " ";
 				}
 			}
-			
+
 			if (strArrayObjType == "integer")
 			{
 				int intArray[arrayLength];
@@ -593,7 +624,7 @@ class Create {
 					cout << intArray[i] << " ";
 				}
 			}
-			
+
 			if (strArrayObjType == "float")
 			{
 				float floatArray[arrayLength];
@@ -604,7 +635,7 @@ class Create {
 					cout << floatArray[i] << " ";
 				}
 			}
-			
+
 			if (strArrayObjType == "double")
 			{
 				double doubleArray[arrayLength];
@@ -616,7 +647,73 @@ class Create {
 				}
 			}
 		}
-	
+
+		void CustomFunction()
+		{
+			int argLength;
+			int curArrayLength;
+			int curNum;
+			int opts;
+			int ivar;
+			int extCodeBlockType;
+			string codeBlockType;
+			string coutOpts;
+			string functionName;
+			string curStr;
+			string curArrayName;
+
+			cout << "=== Function Builder ===\n";
+			cout << "Input a name for your function: ";
+			cin >> functionName;
+
+			cout << "void " << functionName << "() {...}\n";
+
+			cout << "Select a preset code block for the function: \n";
+			cout << "[1] Output string\n[2] Output number\n[3] Output all array elements\n";
+			cin >> opts;
+
+			switch (opts)
+			{
+				case 1:
+					codeBlockType = "string";
+					extCodeBlockType = 1;
+					cout << "Input your string: ";
+					cin >> curStr;
+					cout << "String: ";
+					outputStr(curStr);
+					break;
+
+				case 2:
+					codeBlockType = "integer";
+					extCodeBlockType = 2;
+					cout << "Input your number: ";
+					cin >> curNum;
+					cout << "Number: ";
+					outputNum(curNum);
+					break;
+
+				case 3:
+					codeBlockType = "array";
+					extCodeBlockType = 3;
+					cout << "Input an array name: ";
+					cin >> curArrayName;
+					cout << curArrayName << "[]\n";
+					cout << "\nInput the amount of elements you want for your array: ";
+					cin >> curArrayLength;
+					cout << curArrayName << "[" << curArrayLength << "]\n";
+					cout << "for (int i = null;) {...}\n";
+					cout << "\nInput the value for 'i': ";
+					cin >> ivar;
+					cout << "for (int i = " << ivar << "; i < " << curArrayLength << "; i++) {...}\n\n";
+					string curArrayList[curArrayLength];
+					cout << "Array Elements: \n";
+					for (int i = ivar; i < curArrayLength; i++) {
+						cout << curArrayList[i] << " ";
+					}
+					break;
+			}
+		}
+
 		void CustomClass()
 		{
 			string className;
@@ -624,7 +721,7 @@ class Create {
 			int constructArgLength;
 			int objLength;
 			bool hasContructor;
-			
+
 			cout << "=== Class Builder ===\nEnter a name for your class: ";
 			cin >> className;
 
@@ -668,7 +765,7 @@ class Create {
 		}
 };
 
-Create Create;
+Create VCreate;
 
 class Loops
 {
@@ -687,13 +784,13 @@ class Loops
 			bool cont;
 			bool br;
 
-			cout << "=== For Loop Builder ===\nFirst FL method / Second FL method [1/2]: ";
+			cout << "=== For Loop Builder ===\nFirst For Loop method / Second For Loop method [1/2]: ";
 
 			int opts;
 
 			cin >> opts;
 
-			
+
 			cout << "for (int i = null;)\n";
 			cout << "Input the value for 'i': ";
 			cin >> ivar;
@@ -798,9 +895,9 @@ class Loops
 			bool br;
 			string secopts;
 			string thropts;
-			
-			cout << "=== While Loop builder ===\nFirst WL method / Second WL method [1/2]: ";
-			
+
+			cout << "=== While Loop builder ===\nFirst While Loop method / Second WhileLoop method [1/2]: ";
+
 			int opts;
 
 			cin >> opts;
@@ -893,9 +990,15 @@ Loops CinLoops;
 
 int main()
 {
-	
-	// Write custom code
-	
+
+	// Version checking
+
+	versionChecker(curVers);
+
+	// Write custom code here
+
+	cout << "Hello World!";
+
 	return 0;
-	
+
 }
