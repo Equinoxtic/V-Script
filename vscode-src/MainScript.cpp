@@ -917,7 +917,7 @@ class ActionTypes
 		string opts;
 
 		cout << "Select a loop type: \n";
-		cout << "[cinF] For Loop\n[cinW] While Loop\n";
+		cout << "[cinF] For Loop | [cinW] While Loop\n";
 		cin >> opts;
 
 		if (opts == "cinF") {
@@ -933,7 +933,7 @@ class ActionTypes
 	{
 		int classType;
 
-		cout << "--- Classes ---\n";
+		cout << "--- Classes ---\n\n";
 		cout << "Select a class:\n[1] Calculator\n[2] Create\n[3] Loops\n";
 		cin >> classType;
 
@@ -979,7 +979,7 @@ int main()
 	int actionType;
 	int extActionType;
 
-	cout << "===== V-Script =====\n";
+	cout << "===== V-Script =====\n\n";
 	cout << "Select an Action: \n";
 	cout << "--- Functions ---\n[1] Create an array\n[2] Class Selection...\n";
 	cin >> actionType;
