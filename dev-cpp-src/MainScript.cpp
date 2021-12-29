@@ -1,6 +1,6 @@
 /*
 V-Script-Main-Version
-1.12b
+1.3b
 */
 
 #include<iostream>
@@ -20,11 +20,11 @@ using namespace std;
 ============================ Version Checker============================
 */
 
-string curVers = "1.2";
+string curVers = "1.3";
 
 void versionChecker(string curVersion)
 {
-	if (curVersion != "1.2")
+	if (curVersion != "1.3")
 	{
 		cout << "This version of V-Script is outdated!\n";
 		cout << "Please check out / download the latest release: \n";
@@ -63,6 +63,11 @@ void outputStr(string str)
 }
 
 void outputNum(int num)
+{
+	cout << num;
+}
+
+void outputFloat(float num)
 {
 	cout << num;
 }
@@ -163,152 +168,7 @@ void CreateArray()
 	}
 }
 
-void LocalFor(bool firv, bool secv, int ivar, int a, int b, int c, bool cont, bool br)
-{
-	if (firv == true)
-	{
-		for (int i = ivar; i <= a; i = i + c)
-		{
-			cout << i << "\n";
-			i++;
-			if (i == b)
-			{
-				if (cont == true)
-				{
-					continue;
-				}
-
-				if (br == true)
-				{
-					break;
-				}
-			}
-		}
-	}
-
-	if (secv == true)
-	{
-		int combs = b + c;
-		for (int i = ivar; i <= a; i++)
-		{
-			cout << i << "\n";
-			if (i == combs)
-			{
-				if (cont == true)
-				{
-					continue;
-				}
-
-				if (br == true)
-				{
-					break;
-				}
-			}
-		}
-	}
-}
-
-void LocalWhile(bool nor, bool isdo, int ivar, int a, int b, bool cont, bool br)
-{
-	if (nor == true)
-	{
-		int i = ivar;
-		while (i < a)
-		{
-			cout << i << "\n";
-			i++;
-			if (i == b)
-			{
-				if (cont == true)
-				{
-					continue;
-				}
-
-				if (br == true)
-				{
-					break;
-				}
-			}
-		}
-	}
-
-	if (isdo == true)
-	{
-		int i = ivar;
-		int combs = a + b;
-		do {
-			cout << i << "\n";
-			i++;
-			if (i == b)
-			{
-				if (cont == true)
-				{
-					continue;
-				}
-
-				if (br == true)
-				{
-					break;
-				}
-			}
-		}
-		while (i < combs);
-	}
-}
-
 int res;
-
-static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool divi, bool hascons)
-{
-	if (add == true)
-	{
-		res = a + b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << c;
-			}
-		}
-	}
-
-	if (sub == true)
-	{
-		res = a - b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << c;
-			}
-		}
-	}
-
-	if (multi == true)
-	{
-		res = a * b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << c;
-			}
-		}
-	}
-
-	if (divi == true)
-	{
-		res = a / b;
-		if (hascons == true)
-		{
-			if (res >= c || res <= c)
-			{
-				cout << res << c;
-			}
-		}
-	}
-	cout << res << "\n";
-}
 
 /*
 ============================ Main Classes ============================
@@ -316,16 +176,16 @@ static void numconf(int a, int b, int c, bool add, bool sub, bool multi, bool di
 
 class Out {
 	public:
-		void OutStr(string str) {
-			cout << str;
+		void OutStr(string oStr) {
+			outputStr(oStr);
 		}
 
-		void OutInt(int num) {
-			cout << num;
+		void OutInt(int oNum) {
+			outputNum(oNum);
 		}
 
-		void OutFloat(float num){
-			cout << num;
+		void OutFloat(float oNum){
+			outputFloat(oNum);
 		}
 };
 
@@ -425,48 +285,31 @@ class Calc {
 
 	class Math {
 		public:
-			void Add(int a, int b, int c, bool hascons) {
+			int a;
+			int b;
+
+			void InitNums()
+			{
+				cout << "Input the first number: ";
+				cin >> a;
+				cout << "Input the second number: ";
+				cin >> b;
+			}
+
+			void Add() {
 				res = a + b;
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
 			}
 
-			void Sub(int a, int b, int c, bool hascons) {
+			void Sub() {
 				res = a - b;
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
 			}
 
-			void Multiply(int a, int b, int c, bool hascons) {
+			void Multiply() {
 				res = a * b;
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
 			}
 
-			void Divide(int a, int b, int c, bool hascons) {
+			void Divide() {
 				res = a / b;
-				if (hascons == true) {
-					if (res >= c || res <= c) {
-						cout << res;
-					}
-				} else {
-					cout << res;
-				}
 			}
 	};
 	Math Math;
@@ -985,6 +828,141 @@ class Loops
 Loops CinLoops;
 
 /*
+============================ Action Types ============================
+*/
+
+class ActionTypes
+{
+	public:
+	int extClassType;
+	string strClassType;
+
+	void CalculateClassSelector()
+	{
+		int optFuncs;
+
+		cout << "Select a function / class: \n";
+		cout << "[1] CalcStart (Function)\n[2] Math (Class)\n";
+		cin >> optFuncs;
+
+		switch (optFuncs)
+		{
+			case 1:
+				Calculate.CalcStart();
+			break;
+
+			case 2:
+				MathSelector();
+			break;
+		}
+	}
+
+	void MathSelector()
+	{
+		int opts;
+
+		cout << "Select a function: \n";
+		cout << "[1] Add()\n[2] Sub()\n[3] Multiply()\n[4] Divide()\n";
+		cin >> opts;
+
+		Calculate.Math.InitNums();
+
+		switch (opts)
+		{
+			case 1:
+				Calculate.Math.Add();
+			break;
+
+			case 2:
+				Calculate.Math.Sub();
+			break;
+
+			case 3:
+				Calculate.Math.Multiply();
+			break;
+
+			case 4:
+				Calculate.Math.Divide();
+			break;
+		}
+		cout << res;
+	}
+
+	void CreateSelector()
+	{
+		int opts;
+
+		cout << "Select a function: \n";
+		cout << "[1] Obj()\n[2] CustomFunction()\n[3] CustomClass()\n";
+		cin >> opts;
+
+		switch (opts)
+		{
+			case 1:
+				VCreate.Obj();
+			break;
+
+			case 2:
+				VCreate.CustomFunction();
+			break;
+
+			case 3:
+				VCreate.CustomClass();
+			break;
+		}
+	}
+
+	void LoopSelector()
+	{
+		string opts;
+
+		cout << "Select a loop type: \n";
+		cout << "[cinF] For Loop\n[cinW] While Loop\n";
+		cin >> opts;
+
+		if (opts == "cinF") {
+			CinLoops.cinFor();
+		} else if (opts == "cinW") {
+			CinLoops.cinWhile();
+		} else {
+			throwError("Unknown String.");
+		}
+	}
+
+	void ClassSelector()
+	{
+		int classType;
+
+		cout << "--- Classes ---\n";
+		cout << "Select a class:\n[1] Calculator\n[2] Create\n[3] Loops\n";
+		cin >> classType;
+
+		switch (classType)
+		{
+			case 1:
+				strClassType = "calculator";
+				extClassType = 1;
+				CalculateClassSelector();
+			break;
+
+			case 2:
+				strClassType = "create";
+				extClassType = 2;
+				CreateSelector();
+			break;
+
+			case 3:
+				strClassType = "loops";
+				extClassType = 3;
+				LoopSelector();
+			break;
+		}
+	}
+};
+
+ActionTypes Actions;
+
+/*
 ============================ Code Writing ============================
 */
 
@@ -995,9 +973,33 @@ int main()
 
 	versionChecker(curVers);
 
-	// Write custom code here
+	// Main Stuff
 
-	cout << "Hello World!";
+	string strActionType;
+	int actionType;
+	int extActionType;
+
+	cout << "===== V-Script =====\n";
+	cout << "Select an Action: \n";
+	cout << "--- Functions ---\n[1] Create an array\n[2] Class Selection...\n";
+	cin >> actionType;
+
+	switch (actionType)
+	{
+		case 1:
+			strActionType = "create_array";
+			extActionType = 1;
+			CreateArray();
+		break;
+
+		case 2:
+			strActionType = "class_selector";
+			extActionType = 2;
+			Actions.ClassSelector();
+		break;
+	}
+
+	// Write custom code here
 
 	return 0;
 
