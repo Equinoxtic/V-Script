@@ -132,3 +132,15 @@ Dev-C++ (download): https://sourceforge.net/projects/orwelldevcpp/
 - And then find and open up your extracted folder of V-Script and add "MainScript.cpp"
 
 ![image](https://user-images.githubusercontent.com/86795271/147767421-50a2a611-5c6a-414b-a5fe-888862ab669f.png)
+
+- After that, click on "Tools" then "Compiler Options"
+
+![image](https://user-images.githubusercontent.com/86795271/147767637-27864a41-0dbe-43fc-84e4-58fd10c3d279.png)
+
+- Then go to "Settings" then "Linker" and then set "Generate debugging information (-g3) to "Yes"
+
+![image](https://user-images.githubusercontent.com/86795271/147767784-fd5a99c9-bb7a-40fe-825c-37b86201ec82.png)
+
+- Next after that, press F9 to compile the program
+
+And then you're done for compiling with Dev-C++!
