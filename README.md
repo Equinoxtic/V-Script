@@ -23,15 +23,4 @@ If you have Git downloaded, open up "cmd", and then type in "git clone https://g
 
 ## How to compile
 
-Use an IDE that will allow you to compile this C++ program
-
-Recommended : Dev-C++
-
-Dev-C++ (download): https://sourceforge.net/projects/orwelldevcpp/
-
-Once you have installed Dev-C++ open up, "VScript.dev", and press F9 to compile the program
-and done, the program is now compiled.
-
-It's your preference to use an actual compiler
-
-Read, "InstallForMinGW.md" for an installation process with the MinGW compiler.
+Go to the "docs" directory and read "Compiling.md"
