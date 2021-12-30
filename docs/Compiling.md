@@ -107,10 +107,28 @@ And there we go! You're pretty much ready to compile the program.
 Dev-C++ (download): https://sourceforge.net/projects/orwelldevcpp/
 
 - Then once Dev-C++ is installed open it up, and then click "File"
+
+![image](https://user-images.githubusercontent.com/86795271/147767162-7640488c-1f2c-4235-ac87-991ce901e34a.png)
+
 - Then "New", and then "Project..."
+
+![image](https://user-images.githubusercontent.com/86795271/147767176-049769ef-9a76-45ad-b1ad-5c6c8f03ec7a.png)
+
+![image](https://user-images.githubusercontent.com/86795271/147767206-d9d721fd-dba0-4932-8aec-53ea783c90d0.png)
+
 - And then select "Empty Project"
-- Now delete the current file that you're on by right-clicking on it, and then click on "Remove File"
-- After that, right-click on the project and then click "Add To Project"
-- Then open up the extracted folder of V-Script and add "MainScript.cpp"
+
+![image](https://user-images.githubusercontent.com/86795271/147767223-57408fd5-7258-4908-8430-b9e492969180.png)
+
 - Name it whatever you want
-- And tje
+- Once after that, delete the current file that you're on by right-clicking on it, and then click on "Remove File"
+
+![image](https://user-images.githubusercontent.com/86795271/147767301-eec2d781-c52f-4447-ae7c-58e0884fcf7b.png)
+
+- After that, right-click on the project and then click "Add To Project"
+
+![image](https://user-images.githubusercontent.com/86795271/147767326-810e0ee7-4b3c-435f-a1fc-f1f7bf16a667.png)
+
+- And then find and open up your extracted folder of V-Script and add "MainScript.cpp"
+
+![image](https://user-images.githubusercontent.com/86795271/147767421-50a2a611-5c6a-414b-a5fe-888862ab669f.png)
