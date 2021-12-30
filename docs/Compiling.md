@@ -137,7 +137,7 @@ Dev-C++ (download): https://sourceforge.net/projects/orwelldevcpp/
 
 ![image](https://user-images.githubusercontent.com/86795271/147767637-27864a41-0dbe-43fc-84e4-58fd10c3d279.png)
 
-- Then go to "Settings" then "Linker" and then set "Generate debugging information (-g3) to "Yes"
+- Then go to "Settings" then "Linker" and then set "Generate debugging information (-g3)" to "Yes"
 
 ![image](https://user-images.githubusercontent.com/86795271/147767784-fd5a99c9-bb7a-40fe-825c-37b86201ec82.png)
 
