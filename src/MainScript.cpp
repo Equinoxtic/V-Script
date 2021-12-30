@@ -17,22 +17,6 @@ Recommended: MinGW
 using namespace std;
 
 /*
-============================ Version Checker============================
-*/
-
-string curVers = "1.3";
-
-void versionChecker(string curVersion)
-{
-	if (curVersion != "1.3")
-	{
-		cout << "This version of V-Script is outdated!\n";
-		cout << "Please check out / download the latest release: \n";
-		cout << "https://github.com/Equinoxtic/V-Script/releases \n";
-	}
-}
-
-/*
 ============================ File Initialization ============================
 */
 
@@ -1007,10 +991,6 @@ ActionTypes Actions;
 
 int main()
 {
-
-	// Version checking
-
-	versionChecker(curVers);
 
 	// Main Stuff
 
