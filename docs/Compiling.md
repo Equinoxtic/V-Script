@@ -99,3 +99,18 @@ int main()
 - And it should output the code in the terminal.
 
 And there we go! You're pretty much ready to compile the program.
+
+## Dev-C++ Compiling
+
+- Install Dev-C++
+
+Dev-C++ (download): https://sourceforge.net/projects/orwelldevcpp/
+
+- Then once Dev-C++ is installed open it up, and then click "File"
+- Then "New", and then "Project..."
+- And then select "Empty Project"
+- Now delete the current file that you're on by right-clicking on it, and then click on "Remove File"
+- After that, right-click on the project and then click "Add To Project"
+- Then open up the extracted folder of V-Script and add "MainScript.cpp"
+- Name it whatever you want
+- And tje
